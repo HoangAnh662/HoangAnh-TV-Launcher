@@ -5,6 +5,7 @@ import android.content.pm.ResolveInfo
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +20,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        findViewById<TextView>(R.id.settingsButton).apply {
+            setOnClickListener {
+                runCatching { startActivity(Intent(Settings.ACTION_SETTINGS)) }
+            }
+            setOnFocusChangeListener { view, focused ->
+                view.animate().cancel()
+                view.animate().scaleX(if (focused) 1.07f else 1f).scaleY(if (focused) 1.07f else 1f).setDuration(130).start()
+            }
+        }
 
         val apps = loadApps()
         findViewById<RecyclerView>(R.id.favorites).apply {
