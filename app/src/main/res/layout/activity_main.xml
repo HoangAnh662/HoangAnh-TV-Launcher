@@ -10,8 +10,13 @@
     android:clipChildren="false"
     android:background="@drawable/launcher_background">
 
-    <TextView android:id="@+id/clock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#FFFFFF" android:textSize="42sp" android:textStyle="bold" />
-    <TextView android:id="@+id/date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#D7DCE5" android:textSize="16sp" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+            <TextView android:id="@+id/clock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#FFFFFF" android:textSize="42sp" android:textStyle="bold" />
+            <TextView android:id="@+id/date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#D7DCE5" android:textSize="16sp" />
+        </LinearLayout>
+        <TextView android:id="@+id/settingsButton" android:layout_width="wrap_content" android:layout_height="48dp" android:gravity="center" android:focusable="true" android:clickable="true" android:paddingStart="18dp" android:paddingEnd="18dp" android:text="⚙  Cài đặt" android:textColor="#FFFFFF" android:textSize="17sp" android:background="@drawable/app_card" />
+    </LinearLayout>
 
     <Space android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
 
